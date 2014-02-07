@@ -50,11 +50,11 @@ end
 -- Returns true if successful, false in case of failure
 function LoadBlocks(a_FileName)
 	local SettingsIni = cIniFile()
-	SettingsIni:ReadFile(Path)
+	SettingsIni:ReadFile(a_FileName)
 	local BlockedWorlds = SettingsIni:GetValueSet("General", "ActiveWorlds", "")
 	g_WorldNames = StringSplitAndTrim(BlockedWorlds, ",")
 	local BlockedBlocks = SettingsIni:GetValueSet("General", "Blocks", "tnt, piston")
-	SettingsIni:WriteFile(Path)
+	SettingsIni:WriteFile(a_FileName)
 	local Blocks = StringSplitAndTrim(BlockedBlocks, ",")
 	local TempItem = cItem()
 	for i = 1, #Blocks do
